@@ -11,12 +11,14 @@
 <body>
     <div class="bckgrnd">
         <div class="calc-body">
-            <div class="math"><p class="operationHis"></p></div>
-            <input id="inpt" placeholder="0 " pattern="[0-9]" inputmode="numeric">
+            <div class="math"><p class="operationResult"></p></div>
+            <input id="inpt" placeholder="0 " pattern="[0-9]" inputmode="numeric" value="">
+            <div id="loggedOperation">
+            </div>
             <button class="btn clear"><span class="material-symbols-outlined">
                 delete
             </span></button>
-            <button class="btn operationHisList"><span class="material-symbols-outlined">
+            <button class="btn operationHisListBtn"><span class="material-symbols-outlined">
                 receipt_long
             </span></button>
             <button class="btn backspace"><span class="material-symbols-outlined">
