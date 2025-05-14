@@ -52,7 +52,7 @@ class CalcManagment extends MemoryManagment{
                 this.mathOperation();
             };
     }
-    bracketVerify() {
+    bracketVerify() {   //Walidacja nawiasów
         const str = usrInput.value;
         let stack = [];
 
@@ -88,6 +88,11 @@ class CalcManagment extends MemoryManagment{
         mathResult.style.display='none';
         body.style.gridTemplateRows= "10% calc(100% - 10%)";
         usrInput.style.marginTop='1rem';
+        if(document.documentElement.clientWidth >= '600' && document.documentElement.clientWidth <= '1024'){
+            usrInput.style.gridColumn = 'span 4';
+            usrInput.style.borderLeft = '0';
+            usrInput.style.borderRadius = '0';
+        }
         for(let i=0; i<button.length; i++){
             button[i].style.display='none';
         }
@@ -102,6 +107,12 @@ class CalcManagment extends MemoryManagment{
         mathResult.style.display='';
         body.style.gridTemplateRows= "auto";
         usrInput.style.marginTop='';
+        
+        if(document.documentElement.clientWidth >= '600' && document.documentElement.clientWidth <= '1024'){
+            usrInput.style.gridColumn = '';
+            usrInput.style.borderLeft = '';
+            usrInput.style.borderRadius = '';
+        }
         for(let i=0; i<button.length; i++){
             button[i].style.display='';
         }

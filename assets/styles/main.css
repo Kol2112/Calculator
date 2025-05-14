@@ -1,72 +1,128 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-.bckgrnd{
-    display: grid;
-    grid-template-columns: 100%;
-    background: linear-gradient(17deg,rgba(91, 63, 251, 1) 0%, rgba(252, 70, 94, 1) 100%);
-    width: 100vw;
-    height: 100vh;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-
-.calc-body{
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    background-color: #1A0528;
-    color:white;
-    width: 25%;
-    height: 90%;
-    margin: auto;
-    border: 1px white solid;
-    border-radius: 1rem;
+.bckgrnd {
+  display: grid;
+  grid-template-columns: 100%;
+  background: linear-gradient(17deg, rgb(91, 63, 251), rgb(252, 70, 94));
+  width: 100vw;
+  height: 100vh;
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+.bckgrnd .calc-body {
+  display: grid;
+  background-color: #1A0528;
+  color: white;
+  margin: auto;
+  padding: 1rem;
+}
+.bckgrnd .calc-body .math .operationResult {
+  font-size: 1.5rem;
+  color: gray;
+  justify-self: end;
+}
+.bckgrnd .calc-body #inpt {
+  background-color: #1A0528;
+  color: white;
+  text-align: end;
+  font-size: 2rem;
+}
+.bckgrnd .calc-body #loggedOperation {
+  display: none;
+  grid-column: span 4;
+  color: gray;
+  font-size: 1.5rem;
+  text-align: end;
+}
+.bckgrnd .calc-body #loggedOperation p {
+  padding: 0.4rem;
+}
+.bckgrnd .calc-body input[type=number]::-webkit-outer-spin-button,
+.bckgrnd .calc-body input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+.bckgrnd .calc-body .btn {
+  background: none;
+  color: white;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 0.4rem;
 }
 
-.math{
-    grid-column: span 4;
-    align-self: end;
-    /* display: none; */
+@media (max-width: 1024px) {
+  .calc-body {
     width: 100%;
-}
-.operationResult{
-    font-size: 1.5rem;
-    color:grey;
-    justify-self: end;
-}
-#inpt{
-    background-color: #1A0528;
-    color: white;
-    text-align: end;
-    font-size: 2rem;
-    width: 100%;
-    border: 1px solid #ffffffa1;
+    height: 100%;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .calc-body #inpt {
+    border: 1px solid rgba(255, 255, 255, 0.631372549);
     border-left: 0;
     border-right: 0;
     grid-column: span 4;
-}
-#loggedOperation{
-    display: none;
+  }
+  .calc-body .math {
+    align-self: end;
     grid-column: span 4;
-    color:grey;
-    font-size: 1.5rem;
-    text-align: end;
-    padding: 1rem;
+    justify-self: end;
+  }
+  .calc-body .btn {
+    font-size: 1rem;
+  }
 }
-
-input[type='number']::-webkit-outer-spin-button,
-input[type='number']::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    -moz-appearance: textfield;
+@media (min-width: 600px) and (max-width: 1024px) {
+  .calc-body #inpt {
+    grid-column: span 2;
+    border-left: 1px solid rgba(255, 255, 255, 0.631372549);
+    border-radius: 1rem 0 0 1rem;
+  }
+  .calc-body .math {
+    align-self: center;
+    grid-column: span 2;
+    justify-self: start;
+    padding-left: 1rem;
+  }
+  .calc-body .btn {
+    font-size: 1rem;
+  }
 }
-
-.btn{
-    /* display: none; */
-    background: none;
-    color: white;
+@media (min-width: 1024px) {
+  .bckgrnd .calc-body {
+    grid-template-columns: repeat(auto-fit, 1fr);
+    height: 80%;
     border: 1px solid white;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin: 0.4rem;
+    border-radius: 1rem;
+  }
+  .bckgrnd .calc-body #inpt {
+    grid-column: span 4;
+    border: 1px solid rgba(255, 255, 255, 0.631372549);
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+  .bckgrnd .calc-body .btn {
+    font-size: 1rem;
+  }
+  .bckgrnd .calc-body .math {
+    align-self: end;
+    grid-column: span 4;
+    justify-self: end;
+  }
 }
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}/*# sourceMappingURL=main.css.map */

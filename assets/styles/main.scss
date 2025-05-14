@@ -1,0 +1,162 @@
+$primary-bg: #1A0528;
+$gradient: linear-gradient(17deg, rgba(91, 63, 251, 1), rgba(252, 70, 94, 1));
+$grid: grid;
+$gray: gray;
+$white: white;
+$border: 1px solid #ffffffa1;
+$span4: span 4;
+$span2: span 2;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.bckgrnd {
+display: $grid;
+grid-template-columns: 100%;
+background: $gradient;
+width: 100vw;
+height: 100vh;
+background-size: 200% 200%;
+animation: gradientShift 8s ease infinite;
+    .calc-body {
+        display: $grid;
+        // grid-template-columns: repeat(4, auto);
+        background-color: $primary-bg;
+        color: $white;
+        margin: auto;
+        padding: 1rem;
+
+        .math{
+            .operationResult{
+                font-size: 1.5rem;
+                color:$gray;
+                justify-self: end;
+            }
+        }
+
+
+
+        #inpt{
+            background-color: $primary-bg;
+            color: $white;
+            text-align: end;
+            font-size: 2rem;
+        }
+
+        #loggedOperation{
+            display: none;
+            grid-column: $span4;
+            color:$gray;
+            font-size: 1.5rem;
+            text-align: end;
+            p{
+                padding: 0.4rem;
+            }
+        }
+
+        input[type='number']::-webkit-outer-spin-button,
+        input[type='number']::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
+        }
+        
+        .btn{
+            background: none;
+            color: $white;
+            border: 1px solid $white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 0.4rem;
+        }
+    }
+}
+
+@media (max-width: 1024px){     //Small devices
+  .calc-body {
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    #inpt{
+        border: $border;
+        border-left: 0;
+        border-right: 0;
+        grid-column: $span4;
+    }
+    .math{
+        align-self: end;
+        grid-column: $span4;
+        justify-self: end;
+    }
+    .btn{
+        font-size: 1rem;
+    }
+}
+
+}
+@media(min-width: 600px) and (max-width:1024px)    //View changes for tablets and horizontal view
+{
+
+    .calc-body{
+        #inpt{
+            grid-column: $span2;
+            border-left: $border;
+            border-radius: 1rem 0 0 1rem;
+        }
+        .math{
+            align-self: center;
+            grid-column: $span2;
+            justify-self: start;
+            padding-left: 1rem;
+            .operationResult{
+                // margin-right: 1rem;
+            }
+        }
+        .btn{
+        font-size: 1rem;
+        }
+    }
+
+}
+@media (min-width: 1024px) { //Laptops+
+    .bckgrnd{
+        .calc-body {
+            grid-template-columns: repeat(auto-fit, 1fr);
+            height: 80%;
+            border: 1px solid $white;
+            border-radius: 1rem;
+            #inpt{
+                grid-column: $span4;
+                border: $border;
+                border-right: 0;
+                border-left: 0;
+                border-radius: 0;
+            }
+            .btn{
+                font-size: 1rem;
+            }
+            .math{
+                align-self: end;
+                grid-column: $span4;
+                justify-self: end;
+            }
+        }
+    }
+
+}
+
+
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
